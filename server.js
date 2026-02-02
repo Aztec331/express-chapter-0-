@@ -2,11 +2,15 @@ const express = require("express");
 
 const app = express();
 
+const PORT = 5000;
+
 //middleware to read JSON body
+//middleware only handles requests
 app.use(express.json());
 
 
 //Get routes
+
 app.get('/', (req, res) =>{
     res.send("Home biatch!")
 });
@@ -22,14 +26,13 @@ app.get("/contact", (req, res) => {
 
 //Post routes
 
-
-//post route 1
 app.post('/test', (req,res) =>{
-
-
+    
     console.log(req.body);
 
-    res.send("POST recieved ho gayi bsdk")
+    //res.json always handles response from the server
+    res.json({mesage: "POST RECIEVED", data:req.body})
+    
 });
 
 
@@ -42,9 +45,8 @@ app.post('/test', (req,res) =>{
 
 
 
-
 ///////////////////////////////////////////////////////////////////
-app.listen(5000, ()=> {
+app.listen(PORT, ()=> {
 
     console.log("Server running at http://localhost:5000");
 });
