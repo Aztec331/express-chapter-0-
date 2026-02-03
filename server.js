@@ -5,41 +5,15 @@ const app = express();
 const PORT = 5000;
 
 //middleware to read JSON body
-//middleware only handles requests
+//converts string to javascript object so server can read
 app.use(express.json());
 
-
-//Get routes
-
-app.get('/', (req, res) =>{
-    res.send("Home biatch!")
-});
-
-app.get('/about', (req,res) =>{
-    res.send("About biatch!")
-
-});
-
-app.get("/contact", (req, res) => {
-    res.send("Contact biatch!");
-})
-
-//Post routes
-
-app.post('/test', (req,res) =>{
-    
-    console.log(req.body);
-
-    //res.json always handles response from the server
-    res.json({mesage: "POST RECIEVED", data:req.body})
-    
-});
+//import routes
+const testRoutes = require("./routes/testRoutes.js");
 
 
-
-
-
-
+// use routes
+app.use('/', testRoutes)
 
 
 
