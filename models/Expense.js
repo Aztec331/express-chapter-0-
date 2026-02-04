@@ -7,4 +7,5 @@ const expenseSchema = new mongoose.Schema({
 });
 
 // Model name - Expense
+// DB name will be expenses
 module.exports = mongoose.model("Expense", expenseSchema);
