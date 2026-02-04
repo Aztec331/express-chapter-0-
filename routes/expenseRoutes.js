@@ -4,11 +4,13 @@ const router = express.Router();
 
 const {
     addExpense,
-    getExpenses
+    getExpenses,
+    deleteExpense
 } = require("../controllers/expenseController");
 
 //map URL to controller
 router.post('/', addExpense);
 router.get('/', getExpenses);
+router.delete('/:id', deleteExpense)
 
 module.exports = router;

@@ -1,6 +1,5 @@
+const {name, age} = {name:"Aditya", age:24};
 
+console.log(name);
+console.log(age);
 
-const add = (a,b) => a+b
-
-
-console.log(add(4,5))
