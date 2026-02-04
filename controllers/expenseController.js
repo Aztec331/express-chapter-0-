@@ -52,11 +52,26 @@ const deleteExpense = async (req, res) =>{
 
 }
 
+const updateExpense = async (req, res) =>{
+
+    const id = req.params.id;
+
+    const updated = await Expense.findByIdAndUpdate(
+        id,
+        req.body,
+        {new:true}//return updated document or row whatever the fuck
+    );
+
+    res.json(updated)
+
+}
+
 
 
 //EXPORTS (always at the bottom)
 module.exports = {
     addExpense,
     getExpenses,
-    deleteExpense
+    deleteExpense,
+    updateExpense
 }

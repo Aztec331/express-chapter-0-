@@ -7,7 +7,7 @@ require("dotenv").config();
 const connectDB = require("./config/db");
 
 //middleware to read JSON body
-//converts string to javascript object so server can read
+//converts JSON string to javascript object so server can read
 app.use(express.json());
 
 //Allow any frontend port to connect

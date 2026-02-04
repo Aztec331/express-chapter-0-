@@ -5,12 +5,18 @@ const router = express.Router();
 const {
     addExpense,
     getExpenses,
-    deleteExpense
+    deleteExpense,
+    updateExpense
 } = require("../controllers/expenseController");
 
+const validateExpense = require("../middleware/validateExpense")
+
 //map URL to controller
-router.post('/', addExpense);
+router.post('/',validateExpense, addExpense);
+router.put('/:id',validateExpense,updateExpense );
+
 router.get('/', getExpenses);
-router.delete('/:id', deleteExpense)
+router.delete('/:id', deleteExpense);
+
 
 module.exports = router;
