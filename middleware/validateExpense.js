@@ -17,4 +17,4 @@ const validateExpense = (req,res,next) =>{
 }
 
 
-module.exports = validateExpense
+module.exports = validateExpense;

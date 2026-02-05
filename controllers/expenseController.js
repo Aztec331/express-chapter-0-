@@ -12,7 +12,7 @@ const addExpense = async (req,res) => {
 
     const expense = await Expense.create( {title,amount} );
 
-    res.json(expense);
+    res.status(201).json(expense);
 
 }
 
@@ -42,12 +42,12 @@ const deleteExpense = async (req, res) =>{
             return res.status(404).json( {message:"Expense not found"} );
         }
 
-        res.json( {message: "Expense deleted successfully",
+        res.status(200).json( {message: "Expense deleted successfully",
                    expense_id: id});
 
     }
     catch(error){
-        res.json(500).json( {message: error.message})
+        res.status(500).json( {message: error.message})
     }
 
 }
